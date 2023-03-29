@@ -8,6 +8,7 @@ import UserDashboard from './components/UserDashboard';
 import { useEffect } from 'react';
 import Navbar from './components/Navbar';
 import AddProduct from './components/AddProduct';
+import Register from './components/Register';
 
 function App() {
   const [loggedIn,setLoggedIn] = useState(false)
@@ -65,6 +66,7 @@ function App() {
           <Route path="/" element={<Login onLogin={handleLogin}/>}></Route>
           <Route path="/user-dashboard" user={user} element={<UserDashboard/>}></Route> 
           <Route path="/add-product" element={<AddProduct/>}></Route> 
+          <Route path="/register" element={<Register/>}></Route> 
        </Routes>
       {/* <p>Hello</p> */}
     </div>

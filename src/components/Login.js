@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React,{useState,useEffect} from 'react'
 // import UserDashboard from './UserDashboard';
-import { useNavigate } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 
 function Login({onLogin}) {
     const [email,setEmail]  = useState('')
@@ -79,6 +79,9 @@ function Login({onLogin}) {
                 <button type="submit">Login</button>
             </div>
         </form>
+        <div className="button-container">
+            <a href="/register">Register</a>
+        </div>
     </div>     
     );
 
