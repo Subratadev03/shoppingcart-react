@@ -62,7 +62,6 @@ function Register() {
     )
   return (
     <div>
-
         {loggedIn ? navigate('/user-dashboard'): registerForm}
     </div>
   )

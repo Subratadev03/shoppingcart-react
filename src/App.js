@@ -9,6 +9,8 @@ import { useEffect } from 'react';
 import Navbar from './components/Navbar';
 import AddProduct from './components/AddProduct';
 import Register from './components/Register';
+import EditProducts from './components/EditProducts';
+import Checkout from './components/Checkout';
 
 function App() {
   const [loggedIn,setLoggedIn] = useState(false)
@@ -67,6 +69,8 @@ function App() {
           <Route path="/user-dashboard" user={user} element={<UserDashboard/>}></Route> 
           <Route path="/add-product" element={<AddProduct/>}></Route> 
           <Route path="/register" element={<Register/>}></Route> 
+          <Route path="/edit-product/:id" element={<EditProducts/>}></Route> 
+          <Route path="/product/checkout" element={<Checkout/>}></Route> 
        </Routes>
       {/* <p>Hello</p> */}
     </div>

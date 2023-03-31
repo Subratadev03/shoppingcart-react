@@ -17,12 +17,14 @@ function UserDashboard() {
         setProducts(resluts)
     }
     const getUsersCarts =async ()=>{
+        console.log('Get user cart triggered')
         const access_token = localStorage.getItem('access_token');
-        const headers = {  "Content-type": "application/json","Authorization": `Bearer ${access_token}` };
+        const headers = {"Content-type": "application/json","Authorization": `Bearer ${access_token}` };
         const resposne = await axios.get('http://localhost:3001/api/cart/user-carts',{headers})
         const userCarts = resposne.data.carts
         const updateCarts = [...carts,userCarts]
         setCarts(updateCarts)
+        console.log(carts)
     }
     useEffect(()=>{
         const username = localStorage.getItem('name')
@@ -41,7 +43,7 @@ function UserDashboard() {
   return (
     <div>
         <h3>Hii {name}</h3>
-        {role === 'admin' ? <ProductList products={products}></ProductList> : <UserProductList products={products}></UserProductList>}
+        {role === 'admin' ? <ProductList products={products}></ProductList> : <UserProductList products={products} onCart={getUsersCarts}></UserProductList>}
     </div>
   )
 }

@@ -1,10 +1,10 @@
 import React from 'react'
 import ShowUserProduct from './ShowUserProduct'
 
-function UserProductList({products}) {
+function UserProductList({products, onCart}) {
   // console.log(products)
   const renderProducts = products.map((product,index)=>{
-    return <ShowUserProduct product={product} key={index}></ShowUserProduct>
+    return <ShowUserProduct product={product} key={index} addCart={onCart}></ShowUserProduct>
   })
   return (
     <div> 

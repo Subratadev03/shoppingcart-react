@@ -5,19 +5,20 @@ import { useNavigate } from 'react-router-dom/dist'
 function AddProduct() {
     const [title,setTitle] = useState('')
     const [description,setDescription] = useState('')
+    const [image,setImage] = useState('')
     const navigate = useNavigate()
 
     
     const handleSubmit = async(event)=>{
         event.preventDefault()
         const access_token = localStorage.getItem('access_token');
-        // console.log(access_token)
         const headers = {  "Content-type": "application/json","Authorization": `Bearer ${access_token}` };
         const response = await axios.post('http://localhost:3001/api/products/add-product',{
             title:title,
             description:description,
             price:123,
-            published:false
+            published:false,
+            image:image
 
         },{headers})
         if(response.status === 200){
@@ -38,7 +39,10 @@ function AddProduct() {
 
             <label htmlFor="lname">Description</label>
             <input type="text"  className='add-product-input' id="description" value={description} onChange={e=>setDescription(e.target.value)} name="description" placeholder="Description." required/>
-
+            
+            <label htmlFor="lname">Image</label>
+            <input type="file"  className='add-product-input' id="image" value={image}  onChange={e=>setImage(e.target.value)} name="image" placeholder="image" required/>
+            
         
             <button className='add-product' type="submit"> Add product</button>
         </form>

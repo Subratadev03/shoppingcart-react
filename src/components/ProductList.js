@@ -1,5 +1,6 @@
 // import axios from 'axios'
 import React,{useEffect, useState} from 'react'
+import { NavLink } from 'react-router-dom';
 import ShowProducts from './ShowProducts';
 
 function ProductList({products}) {
@@ -20,6 +21,7 @@ function ProductList({products}) {
     },[])
   return (
     <div>
+        <NavLink className="btn btn-green" to="/add-product">Add Product</NavLink>
         <table>
             <tr>
                 <th>Id</th>
@@ -29,8 +31,6 @@ function ProductList({products}) {
                 <th>Actions</th>
             </tr>
                 {renderProductList}
-
-        
         </table>
     </div>
   )
